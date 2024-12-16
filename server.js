@@ -3,6 +3,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import { v2 as cloudinary } from "cloudinary";
+import cors from "cors"
 
 import authRoutes from "./routes/authRoutes.js";
 import userRoutes from "./routes/userRoute.js";
@@ -30,7 +31,7 @@ app.use(express.json({ limit: "5mb" }));
 app.use(express.urlencoded({ extended: true }));
 
 app.use(cookieParser());
-app.use(corsoption())
+app.use(cors(corsoption));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
