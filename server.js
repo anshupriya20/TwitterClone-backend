@@ -13,9 +13,7 @@ import notificationRoutes from "./routes/notificationRoute.js";
 import connectDB from "./db/connectDB.js";
 
 dotenv.config();
-let corsoption = {
-	origin:["https://twitter-clone-frontend-lilac.vercel.app","http://localhost:5173"],
-}
+
 
 cloudinary.config({
 	cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -31,7 +29,7 @@ app.use(express.json({ limit: "5mb" }));
 app.use(express.urlencoded({ extended: true }));
 
 app.use(cookieParser());
-app.use(cors(corsoption));
+app.use(cors());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
