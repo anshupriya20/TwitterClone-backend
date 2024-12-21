@@ -30,10 +30,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(cors());
 
-app.get("/",(req,res)=>{
-  return res.json({
-    "message":"Server is running successfully"
-  },200)
+app.get("/", (req, res) => {
+  return res.status(200).json({
+    "message": "Server is running successfully"
+  })
 })
 
 app.use("/api/auth", authRoutes);
